@@ -55,17 +55,19 @@ void loop() {
 
     charge_ir_leds();
 
-     _delay_ms(10);
+    setColor( WHITE );
 
-     set_color_if_ir_led_charged( RED );
-    
-     _delay_ms(20);
+   _delay_ms(10);
 
-     set_color_if_ir_led_charged( GREEN );
+   set_color_if_ir_led_charged( RED );
+  
+   _delay_ms(20);
 
-     _delay_ms(30);
+   set_color_if_ir_led_charged( GREEN );
 
-     set_color_if_ir_led_charged( BLUE );
+   _delay_ms(30);
+
+   set_color_if_ir_led_charged( BLUE );
 
         
     asm("sei");
