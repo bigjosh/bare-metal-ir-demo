@@ -6,11 +6,16 @@ The color on the pixels will blinks to indicate the light level on each face...
 
 | Color | Light Level |
 |-|-|
-| BLUE | Dark |
-| Green | Twilight |
-| Red | Light |
+| Blue | Dark |
+| Green | Dim light |
+| Red | Normal Light |
+| White | Bright Light |
 
-Remember that these are Infrared LEDs (IR), so they will be much more sensitive to halogen and incandescent lights than LED and florescent ones. Your blink is like a mini thermal camera!
+Remember that these are Infrared LEDs (IR), so they will be much more sensitive to halogen and incandescent lights than LED and florescent ones. The sun is also a very bright IR source... but can be blocked by thermally coated windows! 
+
+Also remember that IR light can reflect and transmit differently than visible light. A wall might look white but absorb IR, while a piece of black plastic might be clear to IR.  
+
+Your blink is like a mini thermal camera!
 
 ## How the IR LEDs work
 
