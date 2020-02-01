@@ -10,6 +10,7 @@ The color on the pixels will blinks to indicate the light level on each face...
 | Green | Twilight |
 | Red | Light |
 
+Remember that these are Infrared LEDs (IR), so they will be much more sensitive to halogen and incandescent lights than LED and florescent ones. Your blink is like a mini thermal camera!
 
 ## How the IR LEDs work
 
@@ -36,3 +37,15 @@ If an IR LED is getting lots of light, then it will discharge very quickly and w
 If an IR LED is not getting any light hitting it (dark), then it will not discharge and will still be charged when we do the final check, and so will get set to BLUE. 
 
 Neat, right?
+
+## Why does it blink so?
+
+Normally the BlinkOS is accessing these IR LEDs hundreds of times per second to maintain communications. If we let it keep doing that, then it would be changing and discharging the LEDs while we are trying to get our light readings. 
+
+To stop the BlinkBIOS from accessing the IR LEDs, we turn off interrupts. This prevents the BlinkBIOS from doing *anything* so we have a chance do our IR business uninterrupted. 
+
+But when we turn off interrupts we are also stopping the BlinkBIOS from refreshing the RGB pixel LEDs. This why the pixels go dark while we are taking our samples. 
+
+Is it possible to do IR samples while still having the RGB LEDs stay lit? Sure, anything is possible if we want to talk directly to the hardware, but this example is meant to be the simplest possible approach. Other approaches would take much more work.
+
+You can, however, minimize the time the pixels are off by picking a higher threshold of light you want to sense. It takes less time to detect a bright light source, so if you are OK with only seeing bright light then you can sample for a much shorter time. For example, I can sense the light from a 60 watt incandescent bulb 10 feet away in like 5ms.  
