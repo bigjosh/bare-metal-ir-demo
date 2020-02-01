@@ -1,3 +1,6 @@
+// Shows different colors base don how much light is hitting the IR LED on each face
+// Note uses direct hardware access, not for the faint of heart.
+// See README for details!
 
 // We are talking directly to the hardware. so we will need these...
 
@@ -9,6 +12,7 @@ void setup() {
   // No setup needed for this simple example!  
 }
 
+// Charge up all 6 IR LEDs
 
 void charge_ir_leds() {
 
@@ -31,6 +35,8 @@ void charge_ir_leds() {
                                         // REMEBER: Writing a 1 to a PIN register actually toggles the PORT bit!  
 }
 
+// Scan though the 6 IR LEDs and set the coresponding RGB pixel to `color` if the IR LED is still charged
+
 void set_color_if_ir_led_charged( Color c ) {
 
     FOREACH_FACE( f ) {
@@ -44,6 +50,7 @@ void set_color_if_ir_led_charged( Color c ) {
 
 }
 
+// Next time to do a light sample and update the display
 
 Timer nextStep;
 
@@ -51,12 +58,24 @@ void loop() {
 
   if (nextStep.isExpired()) {
 
+    // Turn off interrupts. This prevents the BlinkBIOS from messing with the IR LED while we 
+    // use them, but also stops the RGB pixels from getting refreshed
+
     asm("cli");
 
     charge_ir_leds();
 
+    // Any IR LED that see so much light that it discharges before the first time we check
+    // will default to WHITE
+
     setColor( WHITE );
 
+
+   // Now start checking the see which IR LEDs are still charged at various intervals
+   // and update the colors apropriately. 
+   // Note that I just guessed at these delays and they seems to work ok,
+   // you can make them shorter to make the light thresholds brighter
+   
    _delay_ms(10);
 
    set_color_if_ir_led_charged( RED );
@@ -69,10 +88,11 @@ void loop() {
 
    set_color_if_ir_led_charged( BLUE );
 
-        
+
+   // And turn interrupts back on        
     asm("sei");
     
-    nextStep.set(100);     // Step to (slightly) different color 100 times per second - whole cycle will take 255 steps *10ms = ~2.5 seconds. 
+    nextStep.set(100);     // Leave the RGB pixels on for 100ms so the user can see the colors before starting our next sample round. 
 
   }
 
