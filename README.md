@@ -1,15 +1,15 @@
 # bare-metal-ir-demo
 
-Example of how to directly access the Blink IR LEDs to sense light levels. 
+Example of how to directly access the [Blink](https://move38.com/collections/blinks) IR LEDs to sense light levels. 
 
 The color on the pixels will blinks to indicate the light level on each face...
 
 | Color | Light Level |
 |-|-|
 | Blue | Dark |
-| Green | Dim light |
-| Red | Normal Light |
-| White | Bright Light |
+| Green | Dim |
+| Red | Normal |
+| White | Bright |
 
 Remember that these are Infrared LEDs (IR), so they will be much more sensitive to halogen and incandescent lights than LED and florescent ones. The sun is also a very bright IR source... but can be blocked by thermally coated windows! 
 
