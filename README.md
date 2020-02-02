@@ -54,3 +54,11 @@ But when we turn off interrupts we are also stopping the BlinkBIOS from refreshi
 Is it possible to do IR samples while still having the RGB LEDs stay lit? Sure, anything is possible if we want to talk directly to the hardware, but this example is meant to be the simplest possible approach. Other approaches would take much more work.
 
 You can, however, minimize the time the pixels are off by picking a higher threshold of light you want to sense. It takes less time to detect a bright light source, so if you are OK with only seeing bright light then you can sample for a much shorter time. For example, I can sense the light from a 60 watt incandescent bulb 10 feet away in like 5ms.  
+
+## Fun tricks to impress your friends	
+
+Play target practice by shooting at your blink with a TV remote controller. It will turn colors when you hit it!
+
+Make a motion detector by setting up a blink on your desk to point at an incandescent bulb. No one can sneak up on you because the blink will change colors as soon as they break the beam!
+
+Convince your friends you can psychically control your blink by pointing your phone at it and secretly covering and uncovering the IR illuminator with your finger as you make your incantations!     
