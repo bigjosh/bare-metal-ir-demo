@@ -57,8 +57,8 @@ You can, however, minimize the time the pixels are off by picking a higher thres
 
 ## Fun tricks to impress your friends	
 
-Play target practice by shooting at your blink with a TV remote controller. It will turn colors when you hit it!
+Play target practice by shooting at your blink with a TV remote controller from across the room. It will turn colors when you hit it!
 
 Make a motion detector by setting up a blink on your desk to point at an incandescent bulb. No one can sneak up on you because the blink will change colors as soon as they break the beam!
 
-Convince your friends you can psychically control your blink by pointing your phone at it and secretly covering and uncovering the IR illuminator with your finger as you make your incantations!     
+Convince your friends you can psychically control your blink by pointing your phone at it and secretly covering and uncovering the IR illuminator with your finger as you make spooky incantations!     
